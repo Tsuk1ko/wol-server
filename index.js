@@ -13,12 +13,20 @@ const app = new Koa();
 app.use(async ctx => {
   const id = ctx.request.url.replace(/^\//, '');
   if (!device.has(id)) return;
-  const { mac, address, port } = device.get(id);
+  const conf = device.get(id);
+  const { mac, address, port } = conf;
   const options = {};
   if (address) options.address = address;
   if (port) options.port = port;
-  await wol.wake(mac, options);
-  ctx.status = 200;
+  try {
+    await wol.wake(mac, options);
+    ctx.status = 200;
+    console.log(new Date().toLocaleString(), '| Wake from', ctx.request.ip, JSON.stringify(conf));
+  } catch (e) {
+    ctx.status = 500;
+    console.error(new Date().toLocaleString(), '| Wake failed from', ctx.request.ip, JSON.stringify(conf));
+    console.error(e);
+  }
 });
 
 app.listen(config.port);
