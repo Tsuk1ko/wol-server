@@ -1,0 +1,12 @@
+port: 3000
+
+# id: UUID https://www.uuidgenerator.net/ 或者脸滚键盘
+# mac: 欲唤醒设备的 MAC 地址
+# address: 可选，只能是 IP，默认为 255.255.255.255
+# port: 可选，默认为 9
+
+devices:
+  - id: "00000000-0000-0000-0000-000000000000"
+    mac: "00:00:00:00:00:00"
+    address: "255.255.255.255"
+    port: 9

@@ -1,0 +1,17 @@
+{
+  "name": "wol-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "神代綺凛 <i@loli.best>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js -e js,yml"
+  },
+  "dependencies": {
+    "koa": "^2.13.4",
+    "wol": "^1.0.7",
+    "yaml": "^1.10.2"
+  }
+}
