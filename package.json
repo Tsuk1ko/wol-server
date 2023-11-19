@@ -6,12 +6,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js -e js,yml"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js -e js,yml"
   },
   "dependencies": {
-    "koa": "^2.13.4",
+    "koa": "^2.14.2",
+    "node-fetch": "^2.7.0",
+    "tcp-ping": "^0.1.1",
     "wol": "^1.0.7",
-    "yaml": "^1.10.2"
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/tcp-ping": "^0.1.5"
   }
 }
