@@ -1,5 +1,6 @@
 const wol = require('wol');
 const { device } = require('./config');
+const DeviceChecker = require('./check');
 
 /**
  * @param {string} id
@@ -19,4 +20,6 @@ module.exports = async id => {
   if (!result) {
     throw new Error('wol.wake failed');
   }
+
+  new DeviceChecker(conf).start();
 };

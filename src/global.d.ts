@@ -14,7 +14,7 @@ interface DeviceConfig {
 interface CheckConfig {
   ip?: string;
   port?: number;
-  push?: PushConfig;
+  push: PushConfig;
 }
 
 interface PushConfig {
