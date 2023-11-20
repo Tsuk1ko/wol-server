@@ -1,12 +1,31 @@
+# 监听端口号
 port: 3000
 
-# id: UUID https://www.uuidgenerator.net/ 或者脸滚键盘
-# mac: 欲唤醒设备的 MAC 地址
-# address: 可选，只能是 IP，默认为 255.255.255.255
-# port: 可选，默认为 9
-
 devices:
-  - id: "00000000-0000-0000-0000-000000000000"
-    mac: "00:00:00:00:00:00"
-    address: "255.255.255.255"
+  ### 随便整一个唯一的 ID https://www.uuidgenerator.net/
+  - id: '00000000-0000-0000-0000-000000000000'
+    # 欲唤醒设备的 MAC 地址
+    mac: '00:00:00:00:00:00'
+    # 可选，只能是 IP，默认为 255.255.255.255
+    address: '255.255.255.255'
+    # 可选，默认为 9
     port: 9
+    # 可选，唤醒后检测远程桌面端口之类的并在可用时推送，可检测多个
+    check:
+      ### 可选，默认为 address 的值，但如果 address 为广播地址则此处必须填写具体设备 ip
+      - ip: '192.168.0.1'
+        # 可选，默认为 3389
+        port: 3389
+        # 推送设置，至少需要使用一个，填写多个则都会触发
+        push:
+          # Bark https://bark.day.app/
+          bark: 'https://api.day.app/xxxxxxxx/'
+          # 使用 fetch 请求，url 或 body 中的 {{text}} 会被替换成推送内容，例如下面是一个 POST 请求
+          fetch:
+            url: 'https://example.com/endpoint'
+            # 可选，参考 https://github.com/node-fetch/node-fetch#fetch-options
+            options:
+              method: POST
+              headers:
+                content-type: 'application/json'
+              body: '{"info":"{{text}}"}'

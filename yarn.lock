@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/tcp-ping@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@types/tcp-ping/-/tcp-ping-0.1.5.tgz#018d574e1457dd467815fce15deb3b35f4ef8c1c"
+  integrity sha512-79CSV6HXSi53zB7JwEpDMIPa881n7drC+Ed1JtQ5kdVUklYyG1g4GqefuUQy/AblK58Q5JAS7d9LWbdE2xiEqA==
+
 accepts@^1.3.5:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
@@ -158,10 +163,10 @@ koa-convert@^2.0.0:
     co "^4.6.0"
     koa-compose "^4.1.0"
 
-koa@^2.13.4:
-  version "2.13.4"
-  resolved "https://registry.yarnpkg.com/koa/-/koa-2.13.4.tgz#ee5b0cb39e0b8069c38d115139c774833d32462e"
-  integrity sha512-43zkIKubNbnrULWlHdN5h1g3SEKXOEzoAlRsHOTFpnlDu8JlAOZSMJBLULusuXRequboiwJcj5vtYXKB3k7+2g==
+koa@^2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.14.2.tgz#a57f925c03931c2b4d94b19d2ebf76d3244863fc"
+  integrity sha512-VFI2bpJaodz6P7x2uyLiX6RLYpZmOJqNmoCst/Yyd7hQlszyPwG/I9CQJ63nOtKSxpt5M7NH67V6nJL2BwCl7g==
   dependencies:
     accepts "^1.3.5"
     cache-content-type "^1.0.0"
@@ -214,6 +219,13 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
+node-fetch@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
+  integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
+  dependencies:
+    whatwg-url "^5.0.0"
+
 on-finished@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
@@ -246,10 +258,20 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
+tcp-ping@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/tcp-ping/-/tcp-ping-0.1.1.tgz#02dd7f42b5bf7d7cb78d5b7aacefa155fd8f7c0c"
+  integrity sha512-7Ed10Ds0hYnF+O1lfiZ2iSZ1bCAj+96Madctebmq7Y1ALPWlBY4YI8C6pCL+UTlshFY5YogixKLpgDP/4BlHrw==
+
 toidentifier@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
+
+tr46@~0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
+  integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
 tsscmp@1.0.6:
   version "1.0.6"
@@ -269,15 +291,28 @@ vary@^1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+webidl-conversions@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
+  integrity sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
+
+whatwg-url@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-5.0.0.tgz#966454e8765462e37644d3626f6742ce8b70965d"
+  integrity sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==
+  dependencies:
+    tr46 "~0.0.3"
+    webidl-conversions "^3.0.0"
+
 wol@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/wol/-/wol-1.0.7.tgz#a2e70efca2a28324a744a5d12331d359da470ff7"
   integrity sha512-kg7ETY8g3V5+3GVhUfWCVjeXuCmfrX6xfw4cw4c88+MtoxkbFmcs9Y5yhT1wwOL8inogFUQZ8JMzH9OekaaawQ==
 
-yaml@^1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
-  integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
+yaml@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.4.tgz#53fc1d514be80aabf386dc6001eb29bf3b7523b2"
+  integrity sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==
 
 ylru@^1.2.0:
   version "1.2.1"
