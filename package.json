@@ -1,7 +1,7 @@
 {
   "name": "wol-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "神代綺凛 <i@loli.best>",
   "license": "MIT",
   "private": true,
