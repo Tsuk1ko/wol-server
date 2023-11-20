@@ -8,7 +8,7 @@ interface DeviceConfig {
   mac: string;
   address?: string;
   port?: number;
-  check?: CheckConfig;
+  checks?: Array<CheckConfig | undefined>;
 }
 
 interface CheckConfig {

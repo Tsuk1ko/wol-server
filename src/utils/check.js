@@ -11,24 +11,31 @@ module.exports = class DeviceChecker {
     this.conf = conf;
   }
   async start() {
-    const { check, address } = this.conf;
+    const { checks, address } = this.conf;
 
-    if (!check?.push) return;
+    if (!checks?.length) return;
 
-    const { push, port } = check;
-    const target = check.ip || address;
+    await Promise.all(
+      checks.map(check => {
+        if (!check?.push) return;
 
-    if (!(target && (push.bark || push.fetch?.url))) return;
+        const { push, port } = check;
+        const target = check.ip || address;
 
-    return this.startChecking(target, port);
+        if (!(target && (push.bark || push.fetch?.url))) return;
+
+        return this.startChecking(check, target, port);
+      }),
+    );
   }
 
   /**
    * @private
+   * @param {CheckConfig} conf
    * @param {string} address
    * @param {number} port
    */
-  async startChecking(address, port = 3389) {
+  async startChecking(conf, address, port = 3389) {
     const target = `${address}:${port}`;
     logger.log(`Start checking ${target}`);
 
@@ -39,23 +46,21 @@ module.exports = class DeviceChecker {
       if (canPing) {
         const text = `${target} is available`;
         logger.log(text);
-        return this.pushResult(text);
+        return this.pushResult(conf, text);
       }
     }
 
     const text = `${target} cannot ping`;
     logger.log(text);
-    return this.pushResult(text);
+    return this.pushResult(conf, text);
   }
 
   /**
    * @private
+   * @param {CheckConfig} conf
    * @param {string} text
    */
-  async pushResult(text) {
-    const push = this.conf.check?.push;
-    if (!push) return;
-
+  async pushResult({ push }, text) {
     const promises = [];
 
     if (push.bark) promises.push(pushWithBark(push.bark, text));
