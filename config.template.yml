@@ -20,7 +20,7 @@ devices:
         push:
           # Bark https://bark.day.app/
           bark: 'https://api.day.app/xxxxxxxx/'
-          # 使用 fetch 请求，例如下面是一个 POST 请求
+          # 使用 fetch 请求，url 或 body 中的 {{text}} 会被替换成推送内容，例如下面是一个 POST 请求
           fetch:
             url: 'https://example.com/endpoint'
             # 可选，参考 https://github.com/node-fetch/node-fetch#fetch-options
@@ -28,4 +28,4 @@ devices:
               method: POST
               headers:
                 content-type: 'application/json'
-              body: '{"key":"value"}'
+              body: '{"info":"{{text}}"}'
