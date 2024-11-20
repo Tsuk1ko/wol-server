@@ -65,7 +65,7 @@ const pushWithNtfy = async (url, text) => {
       body: text,
     });
   } catch (error) {
-    logger.error('Push with bark ntfy');
+    logger.error('Push with ntfy failed');
     console.error(error);
   }
 };
