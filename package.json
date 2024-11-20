@@ -10,13 +10,12 @@
     "dev": "nodemon src/index.js -e js,yml"
   },
   "dependencies": {
-    "koa": "^2.14.2",
-    "node-fetch": "^2.7.0",
+    "koa": "^2.15.3",
     "tcp-ping": "^0.1.1",
     "wol": "^1.0.7",
-    "yaml": "^2.3.4"
+    "yaml": "^2.6.1"
   },
   "devDependencies": {
-    "@types/tcp-ping": "^0.1.5"
+    "@types/tcp-ping": "^0.1.6"
   }
 }

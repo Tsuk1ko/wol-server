@@ -1,4 +1,3 @@
-const { default: fetch } = require('node-fetch');
 const { resolve } = require('url');
 const logger = require('./logger');
 
@@ -13,7 +12,7 @@ const pushWithBark = async (url, text) => {
     if (!url.endsWith('/')) url = `${url}/`;
     logger.log('Push with bark', url);
     await fetch(
-      resolve(url, `${encodeURIComponent('WOL')}/${encodeURIComponent(text)}?isArchive=0`),
+      resolve(url, `${encodeURIComponent('WOL')}/${encodeURIComponent(text)}?isArchive=0`)
     );
   } catch (error) {
     logger.error('Push with bark failed');
@@ -54,7 +53,28 @@ const isJsonFetch = headers => {
   return kv?.[1] === 'application/json';
 };
 
+/**
+ * @param {string} url
+ * @param {string} text
+ */
+const pushWithNtfy = async (url, text) => {
+  try {
+    logger.log('Push with ntfy', url);
+    await fetch(url, {
+      method: 'POST',
+      body: text,
+    });
+  } catch (error) {
+    logger.error('Push with bark ntfy');
+    console.error(error);
+  }
+};
+
+/**
+ * @type {Record<string, Function>}
+ */
 module.exports = {
-  pushWithBark,
-  pushWithFetch,
+  bark: pushWithBark,
+  fetch: pushWithFetch,
+  ntfy: pushWithNtfy,
 };

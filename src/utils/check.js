@@ -1,5 +1,5 @@
 const logger = require('./logger');
-const { pushWithBark, pushWithFetch } = require('./push');
+const pushMethodMap = require('./push');
 const tcping = require('./tcping');
 
 module.exports = class DeviceChecker {
@@ -25,7 +25,7 @@ module.exports = class DeviceChecker {
         if (!(target && (push.bark || push.fetch?.url))) return;
 
         return this.startChecking(check, target, port);
-      }),
+      })
     );
   }
 
@@ -61,10 +61,15 @@ module.exports = class DeviceChecker {
    * @param {string} text
    */
   async pushResult({ push }, text) {
+    /**
+     * @type {Promise<any>[]}
+     */
     const promises = [];
 
-    if (push.bark) promises.push(pushWithBark(push.bark, text));
-    if (push.fetch) promises.push(pushWithFetch(push.fetch, text));
+    Object.entries(push).forEach(([name, option]) => {
+      if (!(name in pushMethodMap)) return;
+      promises.push(pushMethodMap[name](option, text));
+    });
 
     await Promise.all(promises);
   }
