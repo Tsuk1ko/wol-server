@@ -22,7 +22,7 @@ module.exports = class DeviceChecker {
         const { push, port } = check;
         const target = check.ip || address;
 
-        if (!(target && (push.bark || push.fetch?.url))) return;
+        if (!(target && Object.keys(push).length)) return;
 
         return this.startChecking(check, target, port);
       })
