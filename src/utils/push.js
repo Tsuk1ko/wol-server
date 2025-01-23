@@ -4,7 +4,7 @@ const logger = require('./logger');
 const TEXT_PLACEHOLDER_REG = /{{text}}/g;
 
 /**
- * @param {string} url
+ * @param {NonNullable<PushConfig['bark']>} url
  * @param {string} text
  */
 const pushWithBark = async (url, text) => {
@@ -54,15 +54,16 @@ const isJsonFetch = headers => {
 };
 
 /**
- * @param {string} url
+ * @param {NonNullable<PushConfig['ntfy']>} url
  * @param {string} text
  */
-const pushWithNtfy = async (url, text) => {
+const pushWithNtfy = async ({ url, token }, text) => {
   try {
     logger.log('Push with ntfy', url);
     await fetch(url, {
       method: 'POST',
       body: text,
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
     });
   } catch (error) {
     logger.error('Push with ntfy failed');

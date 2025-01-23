@@ -19,7 +19,10 @@ interface CheckConfig {
 
 interface PushConfig {
   bark?: string;
-  ntfy?: string;
+  ntfy?: {
+    url: string;
+    token?: string;
+  };
   fetch?: {
     url: string;
     options?: any;

@@ -21,7 +21,10 @@ devices:
           # https://bark.day.app/
           bark: 'https://api.day.app/xxxxxxxx/'
           # https://docs.ntfy.sh/
-          ntfy: 'https://ntfy.sh/xxxxxxxx'
+          ntfy:
+            url: 'https://ntfy.sh/xxxxxxxx'
+            # 可选
+            token: 'xxxxxxxx'
           # 使用 fetch 请求，url 或 body 中的 {{text}} 会被替换成推送内容，例如下面是一个 POST 请求
           fetch:
             url: 'https://example.com/endpoint'
