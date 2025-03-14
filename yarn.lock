@@ -163,10 +163,10 @@ koa-convert@^2.0.0:
     co "^4.6.0"
     koa-compose "^4.1.0"
 
-koa@^2.15.3:
-  version "2.15.3"
-  resolved "https://registry.yarnpkg.com/koa/-/koa-2.15.3.tgz#062809266ee75ce0c75f6510a005b0e38f8c519a"
-  integrity sha512-j/8tY9j5t+GVMLeioLaxweJiKUayFhlGqNTzf2ZGwL0ZCQijd2RLHK0SLW5Tsko8YyyqCZC2cojIb0/s62qTAg==
+koa@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.16.0.tgz#0a82ed4d460774ff0b444e361cd6e4bd5c767ee3"
+  integrity sha512-Afhqq0Vq3W7C+/rW6IqHVBDLzqObwZ07JaUNUEF8yCQ6afiyFE3RAy+i7V0E46XOWlH7vPWn/x0vsZwNy6PWxw==
   dependencies:
     accepts "^1.3.5"
     cache-content-type "^1.0.0"
@@ -284,10 +284,10 @@ wol@^1.0.7:
   resolved "https://registry.yarnpkg.com/wol/-/wol-1.0.7.tgz#a2e70efca2a28324a744a5d12331d359da470ff7"
   integrity sha512-kg7ETY8g3V5+3GVhUfWCVjeXuCmfrX6xfw4cw4c88+MtoxkbFmcs9Y5yhT1wwOL8inogFUQZ8JMzH9OekaaawQ==
 
-yaml@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.6.1.tgz#42f2b1ba89203f374609572d5349fb8686500773"
-  integrity sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==
+yaml@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.7.0.tgz#aef9bb617a64c937a9a748803786ad8d3ffe1e98"
+  integrity sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==
 
 ylru@^1.2.0:
   version "1.2.1"
