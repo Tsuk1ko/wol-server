@@ -27,4 +27,8 @@ interface PushConfig {
     url: string;
     options?: any;
   };
+  dingtalk?: {
+    url: string;
+    secret: string;
+  };
 }

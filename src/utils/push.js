@@ -1,5 +1,6 @@
 const { resolve } = require('url');
 const logger = require('./logger');
+const { dingTalkSign } = require('./dingtalkSign');
 
 const TEXT_PLACEHOLDER_REG = /{{text}}/g;
 
@@ -49,12 +50,12 @@ const pushWithFetch = async ({ url, options }, text) => {
  */
 const isJsonFetch = headers => {
   if (!headers) return false;
-  const kv = Object.entries(headers).find(([k, v]) => k.toLowerCase() === 'content-type');
+  const kv = Object.entries(headers).find(([k]) => k.toLowerCase() === 'content-type');
   return kv?.[1] === 'application/json';
 };
 
 /**
- * @param {NonNullable<PushConfig['ntfy']>} url
+ * @param {NonNullable<PushConfig['ntfy']>} conf
  * @param {string} text
  */
 const pushWithNtfy = async ({ url, token }, text) => {
@@ -72,10 +73,40 @@ const pushWithNtfy = async ({ url, token }, text) => {
 };
 
 /**
+ * @param {NonNullable<PushConfig['dingtalk']>} conf
+ * @param {string} text
+ */
+const pushWithDingtalk = async ({ url, secret }, text) => {
+  try {
+    logger.log('Push with dingtalk', url);
+    const { timestamp, sign } = dingTalkSign(secret);
+    const urlObj = new URL(url);
+    urlObj.searchParams.set('timestamp', timestamp);
+    urlObj.searchParams.set('sign', sign);
+    await fetch(urlObj, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        msgtype: 'text',
+        text: {
+          content: text,
+        },
+      }),
+    });
+  } catch (error) {
+    logger.error('Push with dingtalk failed');
+    console.error(error);
+  }
+};
+
+/**
  * @type {Record<string, Function>}
  */
 module.exports = {
   bark: pushWithBark,
   fetch: pushWithFetch,
   ntfy: pushWithNtfy,
+  dingtalk: pushWithDingtalk,
 };
